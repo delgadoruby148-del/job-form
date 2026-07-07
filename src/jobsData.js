@@ -70,5 +70,203 @@ export const jobsList = {
       "Identify visual defects (such as distorted anatomy, floating objects, or layout clipping).",
       "Submit ratings determining which model best followed the spirit and text of the prompt."
     ]
+  },
+  "safety-red-teamer": {
+    title: "Multi-Turn Chatbot Safety Red-Teamer",
+    hourlyRate: "$24/hr",
+    overview: "Intentionally probe, trick, and 'stress-test' advanced AI models to identify security loopholes, structural biases, or safety filter bypasses before the models are deployed to millions of consumers.",
+    requirements: [
+      "Creative, adversarial mindset—thinking like a hacker or mischief-maker",
+      "Strong understanding of conversational manipulation and phrasing nuances",
+      "Familiarity with online safety, moderation principles, or trust and safety policies",
+      "Excellent documentation skills to report precise vulnerabilities discovered"
+    ],
+    workflow: [
+      "Develop creative, multi-step conversational scenarios designed to bypass standard AI safety walls.",
+      "Engage the AI chatbot in complex, adversarial text exchanges to coax it into generating prohibited outputs.",
+      "Document instances where the AI successfully resists manipulation versus where it fails.",
+      "Categorize the severity of safety leaks (e.g., security bypass, malicious text generation).",
+      "Provide actionable feedback on how to patch the underlying model vulnerability."
+    ]
+  },
+  "logic-math-grader": {
+    title: "Logical Reasoning & Core Math Grader",
+    hourlyRate: "$25/hr",
+    overview: "Review, evaluate, and correct the step-by-step mathematical reasoning and logical workflows of advanced problem-solving AI models to improve computational accuracy.",
+    requirements: [
+      "Strong foundational skills in mathematics, algebra, logic, or discrete reasoning",
+      "Ability to instantly spot micro-errors in sequential arithmetic or step-by-step derivations",
+      "Extreme patience when reading through long, dense logical proofs",
+      "Background in STEM tutoring, education, or engineering is highly valued"
+    ],
+    workflow: [
+      "Examine a high-school or introductory college-level word problem submitted to the AI.",
+      "Trace through every individual row of calculation or deductive leap the AI generates.",
+      "Pinpoint the exact step where the calculation or logic diverges from truth.",
+      "Write a precise explanation detailing the flaw in the model's logic tree.",
+      "Submit the verified, perfectly executed step-by-step correction to train the system."
+    ]
+  },
+  "translation-auditor": {
+    title: "Language Translation & Localization Auditor",
+    hourlyRate: "$23/hr",
+    overview: "Evaluate machine-translated materials for native flow, idioms, cultural context, and localized nuances to move text models beyond stiff, literal word-for-word interpretations.",
+    requirements: [
+      "Native or bilingual fluency in English plus at least one major secondary language",
+      "Deep understanding of localized slang, metaphors, and cultural taboos",
+      "Excellent proofreading, grammar, and syntax grading capabilities",
+      "Prior localization or freelance translation work is a massive asset"
+    ],
+    workflow: [
+      "Read a source text along with up to three AI-generated translations in your target language.",
+      "Evaluate the text for mechanical accuracy (grammar, spelling) and tonal localization.",
+      "Flag phrasing that feels unnatural, overly formal, or contextually inappropriate to a native speaker.",
+      "Score the translations on clarity, intent retention, and stylistic flow.",
+      "Provide the ideal native phrasing adjustments directly into the grading platform."
+    ]
+  },
+  "image-alt-writer": {
+    title: "Image Description & Alt-Text Writer",
+    hourlyRate: "$20/hr",
+    overview: "Produce crystal-clear, objective, and highly descriptive text breakdowns of physical scenes, charts, and graphics to feed multi-modal vision training pipelines.",
+    requirements: [
+      "Strong descriptive vocabulary with zero reliance on fluff words",
+      "Ability to translate complex graphical data or cluttered visual images into structured text",
+      "Strong understanding of descriptive focus (foreground, background, focal point)",
+      "Reliable track record with highly repetitive, detail-heavy workflows"
+    ],
+    workflow: [
+      "Analyze an un-tagged visual element (photograph, interface mock-up, or textbook diagram).",
+      "Write a meticulously organized textual summary capturing all visible elements, textures, colors, and layout.",
+      "Extract and transcribe any textual or numeric data embedded inside the visual asset.",
+      "Ensure personal assumptions, artistic interpretations, or emotional biases are excluded from descriptions.",
+      "Format the output text to meet strict accessibility and machine-learning ingestion standards."
+    ]
+  },
+  "video-segmentation-tagger": {
+    title: "Video Action & Temporal Segmentation Tagger",
+    hourlyRate: "$22/hr",
+    overview: "Audit and frame-tag raw video footage to teach kinetic AI systems to recognize physical dynamics, objects shifting, and human activities down to the millisecond.",
+    requirements: [
+      "High visual endurance for analyzing continuous video playbacks frame-by-frame",
+      "Meticulous accuracy when working with timeline adjustments and timestamps",
+      "Comfortable learning custom video annotation software tools quickly",
+      "Access to a high-speed internet connection for streaming continuous 4K video frames"
+    ],
+    workflow: [
+      "Load a designated raw video asset within the interactive cloud platform workspace.",
+      "Locate precise timestamps where a predefined physical activity or event initiates and concludes.",
+      "Draw accurate 2D/3D bounding boxes around human entities or moving objects across frames.",
+      "Label environmental triggers, lighting modifications, or camera angles based on project rules.",
+      "Validate the sequence timing maps to guarantee error-free injection into video-generation models."
+    ]
+  },
+  "audio-transcriber": {
+    title: "Audio Transcription & Accent Diarization",
+    hourlyRate: "$21/hr",
+    overview: "Transcribe audio materials from challenging environments to clean up auditory interference filters and help models parse unique regional accents.",
+    requirements: [
+      "Impeccable acoustic perception and auditory processing faculties",
+      "Deep familiarity with distinct English regional dialects, speed variations, and slurred phrasing",
+      "Fast, high-accuracy typing speeds accompanied by clean grammatical syntax formatting",
+      "Prior transcription or closed-captioning experience preferred"
+    ],
+    workflow: [
+      "Listen closely to complex audio recordings featuring background murmurs, ambient sound, or multiple speakers.",
+      "Type verbatim text files detailing spoken content, omitting no stutters, filler words, or colloquial expressions.",
+      "Apply accurate speaker tags separating who is speaking throughout the conversation flow.",
+      "Timestamp muffled words or unintelligible segments according to project instructions.",
+      "Verify the output manuscript matches the underlying waveform perfectly."
+    ]
+  },
+  "ui-layout-evaluator": {
+    title: "UI/UX Front-End Layout Evaluator",
+    hourlyRate: "$24/hr",
+    overview: "Examine visual front-end layouts generated by design LLMs, flagging rendering alignment flaws, responsive design bugs, and structural flaws.",
+    requirements: [
+      "Basic understanding of modern web layout principles (Flexbox, Grid, CSS frameworks)",
+      "Sharp visual eye for padding imbalances, overlapping text blocks, and alignment issues",
+      "Familiarity with viewing apps across varying viewport widths (mobile vs. tablet vs. desktop)",
+      "Clear communication style when detailing structural bugs to a technical platform"
+    ],
+    workflow: [
+      "Load an AI-generated interface mockup or interactive web preview panel inside your workspace.",
+      "Test responsive scaling limits by adjusting structural preview screen configurations.",
+      "Locate clipping margins, illegible font sizes, broken image assets, or broken button states.",
+      "Rate the structural adherence of the page against popular design systems and style guides.",
+      "Document all visual bugs found with clear explanations of where the rendering failed."
+    ]
+  },
+  "code-correction-grader": {
+    title: "Code Correction & Optimization Grader",
+    hourlyRate: "$35/hr",
+    overview: "Audit code snippets generated by AI models, ensuring they run efficiently, follow clean coding patterns, and contain zero security holes.",
+    requirements: [
+      "Practical familiarity writing and debugging script logic in Python, JavaScript, or TypeScript",
+      "Familiarity with tracking computational efficiency (Big O notation, memory allocations)",
+      "Ability to quickly spot security flaws like SQL injections or unhandled edge cases",
+      "Enrolled in or graduated from a Computer Science or Software Engineering track"
+    ],
+    workflow: [
+      "Analyze a code generation prompt alongside the code blocks generated by the model.",
+      "Execute or trace the code mentally to confirm structural correctness and execution efficiency.",
+      "Expose silent logic failures, algorithmic bugs, or inefficient loop declarations.",
+      "Refactor faulty blocks into production-grade code that executes flawlessly.",
+      "Provide a highly instructional markdown summary explaining the exact rationale behind your fix."
+    ]
+  },
+  "legal-contract-verifier": {
+    title: "Legal Brief & Contract Analysis Verifier",
+    hourlyRate: "$45/hr",
+    overview: "Audit legal documentation summaries generated by text models to make sure critical clauses, precedents, and liabilities are perfectly accurately stated.",
+    requirements: [
+      "Currently enrolled in law school, paralegal training, or holding a formal JD / legal background",
+      "Deep understanding of commercial contracting language, indemnities, and legal briefs",
+      "Incredible attention to micro-phrasing and contextual conditional expressions",
+      "Absolute dedication to protecting informational integrity within highly regulated contexts"
+    ],
+    workflow: [
+      "Read through an original full-length legal contract or court briefing document.",
+      "Review the automated overview, clause extraction, or executive brief generated by the AI.",
+      "Verify that no core legal provisions, liabilities, or deadlines were warped or dropped.",
+      "Correct any misstatements or overly broad interpretations introduced by the model.",
+      "Draft a structured explanation of the legal impact of the model's error."
+    ]
+  },
+  "medical-info-verifier": {
+    title: "Medical Information & Health Verification Specialist",
+    hourlyRate: "$48/hr",
+    overview: "Audit health explanations, symptom overviews, and anatomical descriptions written by AI to verify they match up exactly with peer-reviewed clinical literature.",
+    requirements: [
+      "Background in healthcare, medicine, nursing, or biological research fields",
+      "Familiarity navigating clinical trial directories, PubMed registries, and medical indexes",
+      "Zero tolerance for scientific leaps, false diagnostic frameworks, or unverified claims",
+      "Ability to translate complex medical insights into clear, safe prose instructions"
+    ],
+    workflow: [
+      "Evaluate a user health query alongside the model's synthesized healthcare response text.",
+      "Cross-check all scientific assertions, drug mechanism assertions, and anatomical summaries against clinical consensus.",
+      "Flag any dangerous guidance, misidentified symptom mappings, or unverified health claims.",
+      "Inject verified, safe contextual parameters to correct any inaccuracies.",
+      "Sign off on the clinical safety score of the reviewed training block."
+    ]
+  },
+  "search-relevance-rater": {
+    title: "Search Intent & E-Commerce Relevance Rater",
+    hourlyRate: "$20/hr",
+    overview: "Evaluate semantic search queries against product results to rate whether an AI recommendation search tool understands exactly what the user is trying to find.",
+    requirements: [
+      "Intuitive understanding of consumer search behaviors and shopping preferences",
+      "Strong analytical skills to separate primary intent from secondary or accidental intent",
+      "Comfort handling rapid, high-volume review screens and categorical selections",
+      "Excellent logical grouping and organizational capabilities"
+    ],
+    workflow: [
+      "Review a consumer search keyword or intent string input into an e-commerce platform.",
+      "Examine the product listing results, images, and descriptors surfaced by the search algorithm.",
+      "Determine if the results perfectly match, partially match, or completely miss what the user wanted.",
+      "Categorize peripheral recommendations based on semantic relationships and product attributes.",
+      "Log your intent accuracy evaluations to fine-tune the recommendation algorithm."
+    ]
   }
 };
