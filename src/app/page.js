@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { getJobList } from "@/jobsData";
+import { jobsList } from "@/jobsData";
 
 export default function Home() {
-  const openRoles = getJobList();
+  const openRoles = Object.entries(jobsList).map(([id, job]) => ({ id, ...job }));
 
   return (
     <div className="flex flex-1 items-center justify-center bg-gradient-to-br from-slate-50 via-white to-indigo-50 px-4 py-12 dark:from-zinc-950 dark:via-zinc-900 dark:to-indigo-950">
@@ -31,8 +31,11 @@ export default function Home() {
                   <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">
                     {job.title}
                   </h2>
+                  <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                    {job.hourlyRate}
+                  </p>
                   <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                    {job.summary}
+                    {job.overview}
                   </p>
                 </div>
                 <Link

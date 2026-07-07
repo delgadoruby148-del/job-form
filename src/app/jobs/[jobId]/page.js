@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
-import { getJob } from "@/jobsData";
+import { jobsList } from "@/jobsData";
 
 const MAX_FILE_SIZE = 500 * 1024;
 const ALLOWED_MIME_TYPES = new Set([
@@ -133,7 +133,7 @@ function JobDetailSection({ title, children }) {
 export default function JobApplicationPage() {
   const params = useParams();
   const jobId = params.jobId;
-  const job = getJob(jobId);
+  const job = jobsList[jobId] ?? null;
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -255,6 +255,9 @@ export default function JobApplicationPage() {
             <h1 className="mt-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               {job.title}
             </h1>
+            <p className="mt-2 text-sm font-medium text-indigo-600 dark:text-indigo-400">
+              {job.hourlyRate}
+            </p>
             <p className="mt-3 text-zinc-600 dark:text-zinc-400">
               Review the role details below, then submit your application.
             </p>
@@ -265,10 +268,20 @@ export default function JobApplicationPage() {
           <div className="rounded-2xl border border-zinc-200/80 bg-white p-8 shadow-xl shadow-zinc-200/50 dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-none">
             <div className="space-y-8">
               <JobDetailSection title="Project Overview">{job.overview}</JobDetailSection>
-              {job.workflow && (
-                <JobDetailSection title="Workflow">{job.workflow}</JobDetailSection>
-              )}
-              <JobDetailSection title="Minimum Requirements">{job.requirements}</JobDetailSection>
+              <JobDetailSection title="Workflow">
+                <ol className="list-decimal space-y-2 pl-5">
+                  {job.workflow.map((step) => (
+                    <li key={step}>{step}</li>
+                  ))}
+                </ol>
+              </JobDetailSection>
+              <JobDetailSection title="Minimum Requirements">
+                <ul className="list-disc space-y-2 pl-5">
+                  {job.requirements.map((requirement) => (
+                    <li key={requirement}>{requirement}</li>
+                  ))}
+                </ul>
+              </JobDetailSection>
             </div>
           </div>
 
