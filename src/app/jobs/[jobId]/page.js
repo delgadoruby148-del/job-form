@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { jobsList } from "@/jobsData";
+import { countriesList } from "@/countriesData";
 
 const MAX_FILE_SIZE = 500 * 1024;
 const ALLOWED_MIME_TYPES = new Set([
@@ -13,49 +14,6 @@ const ALLOWED_MIME_TYPES = new Set([
 ]);
 const ALLOWED_EXTENSIONS = [".pdf", ".docx"];
 const STORAGE_BUCKET = "oceansourceai-application-form";
-
-const COUNTRIES = [
-  { name: "United States", dialCode: "+1" },
-  { name: "United Kingdom", dialCode: "+44" },
-  { name: "Canada", dialCode: "+1" },
-  { name: "Australia", dialCode: "+61" },
-  { name: "India", dialCode: "+91" },
-  { name: "Germany", dialCode: "+49" },
-  { name: "France", dialCode: "+33" },
-  { name: "Philippines", dialCode: "+63" },
-  { name: "Pakistan", dialCode: "+92" },
-  { name: "Nigeria", dialCode: "+234" },
-  { name: "South Africa", dialCode: "+27" },
-  { name: "Mexico", dialCode: "+52" },
-  { name: "Brazil", dialCode: "+55" },
-  { name: "Spain", dialCode: "+34" },
-  { name: "Italy", dialCode: "+39" },
-  { name: "Netherlands", dialCode: "+31" },
-  { name: "Ireland", dialCode: "+353" },
-  { name: "New Zealand", dialCode: "+64" },
-  { name: "Singapore", dialCode: "+65" },
-  { name: "United Arab Emirates", dialCode: "+971" },
-  { name: "Kenya", dialCode: "+254" },
-  { name: "Ghana", dialCode: "+233" },
-  { name: "Bangladesh", dialCode: "+880" },
-  { name: "Indonesia", dialCode: "+62" },
-  { name: "Malaysia", dialCode: "+60" },
-  { name: "Poland", dialCode: "+48" },
-  { name: "Portugal", dialCode: "+351" },
-  { name: "Romania", dialCode: "+40" },
-  { name: "Sweden", dialCode: "+46" },
-  { name: "Switzerland", dialCode: "+41" },
-  { name: "Turkey", dialCode: "+90" },
-  { name: "Ukraine", dialCode: "+380" },
-  { name: "Vietnam", dialCode: "+84" },
-  { name: "Argentina", dialCode: "+54" },
-  { name: "Colombia", dialCode: "+57" },
-  { name: "Egypt", dialCode: "+20" },
-  { name: "Israel", dialCode: "+972" },
-  { name: "Japan", dialCode: "+81" },
-  { name: "South Korea", dialCode: "+82" },
-  { name: "China", dialCode: "+86" },
-];
 
 const fieldClassName =
   "w-full rounded-xl border border-sky-200 bg-white px-4 py-2.5 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20";
@@ -144,8 +102,8 @@ export default function JobApplicationPage() {
 
   function handleCountryChange(event) {
     const countryName = event.target.value;
-    const selectedCountry = COUNTRIES.find((entry) => entry.name === countryName);
-    const previousCountry = COUNTRIES.find((entry) => entry.name === country);
+    const selectedCountry = countriesList.find((entry) => entry.name === countryName);
+    const previousCountry = countriesList.find((entry) => entry.name === country);
 
     setCountry(countryName);
 
@@ -361,8 +319,8 @@ export default function JobApplicationPage() {
                   <option value="" disabled>
                     Select your country
                   </option>
-                  {COUNTRIES.map((entry) => (
-                    <option key={entry.name} value={entry.name}>
+                  {countriesList.map((entry) => (
+                    <option key={entry.code} value={entry.name}>
                       {entry.name} ({entry.dialCode})
                     </option>
                   ))}
