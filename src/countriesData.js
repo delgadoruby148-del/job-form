@@ -1,6 +1,6 @@
 export const countriesList = [
   { name: "Afghanistan", code: "AF", dialCode: "+93" },
-  { name: "Åland Islands", code: "AX", dialCode: "+35818" },
+  { name: "Åland Islands", code: "AX", dialCode: "+358" },
   { name: "Albania", code: "AL", dialCode: "+355" },
   { name: "Algeria", code: "DZ", dialCode: "+213" },
   { name: "American Samoa", code: "AS", dialCode: "+1684" },

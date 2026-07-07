@@ -100,17 +100,16 @@ export default function JobApplicationPage() {
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
 
+  const selectedCountry = countriesList.find((entry) => entry.name === country) ?? null;
+
   function handleCountryChange(event) {
     const countryName = event.target.value;
-    const selectedCountry = countriesList.find((entry) => entry.name === countryName);
-    const previousCountry = countriesList.find((entry) => entry.name === country);
+    const nextCountry = countriesList.find((entry) => entry.name === countryName);
 
     setCountry(countryName);
 
-    if (selectedCountry) {
-      setPhone(
-        applyDialCodePrefix(phone, previousCountry?.dialCode ?? null, selectedCountry.dialCode),
-      );
+    if (nextCountry) {
+      setPhone(applyDialCodePrefix(phone, selectedCountry?.dialCode ?? null, nextCountry.dialCode));
     }
   }
 
@@ -325,6 +324,12 @@ export default function JobApplicationPage() {
                     </option>
                   ))}
                 </select>
+                {selectedCountry && (
+                  <p className="mt-2 text-xs text-slate-500">
+                    International dial code prefix:{" "}
+                    <span className="font-semibold text-sky-600">{selectedCountry.dialCode}</span>
+                  </p>
+                )}
               </div>
 
               <div>
@@ -341,7 +346,11 @@ export default function JobApplicationPage() {
                   required
                   value={phone}
                   onChange={(event) => setPhone(event.target.value)}
-                  placeholder="+1 (555) 000-0000"
+                  placeholder={
+                    selectedCountry
+                      ? `${selectedCountry.dialCode} (555) 000-0000`
+                      : "Select a country first"
+                  }
                   className={fieldClassName}
                 />
               </div>
