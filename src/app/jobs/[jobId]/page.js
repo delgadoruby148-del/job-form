@@ -158,8 +158,8 @@ export default function JobApplicationPage() {
 
   if (!job) {
     return (
-      <div className="flex flex-1 items-center justify-center bg-sky-50 px-4 py-12">
-        <main className="w-full max-w-lg text-center">
+      <div className="flex flex-1 flex-col bg-sky-50 w-full px-[15%] py-12">
+        <main className="w-full text-center">
           <h1 className="text-2xl font-bold text-slate-900">Job not found</h1>
           <p className="mt-3 text-slate-600">This role may no longer be available.</p>
           <Link
@@ -235,8 +235,8 @@ export default function JobApplicationPage() {
   }
 
   return (
-    <div className="flex flex-1 items-center justify-center bg-sky-50 px-4 py-12">
-      <main className="w-full max-w-2xl">
+    <div className="flex flex-1 flex-col bg-sky-50 w-full px-[15%] py-12">
+      <main className="w-full">
         <div className="mb-8">
           <Link
             href="/"

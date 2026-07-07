@@ -5,8 +5,8 @@ export default function Home() {
   const openRoles = Object.entries(jobsList).map(([id, job]) => ({ id, ...job }));
 
   return (
-    <div className="flex flex-1 items-center justify-center bg-sky-50 px-4 py-12">
-      <main className="w-full max-w-3xl">
+    <div className="flex flex-1 flex-col bg-sky-50 w-full px-[15%] py-12">
+      <main className="w-full">
         <div className="mb-10 text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-sky-600">
             Careers
@@ -14,7 +14,7 @@ export default function Home() {
           <h1 className="mt-2 text-4xl font-bold tracking-tight text-slate-900">
             OceanSource AI
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
+          <p className="mt-4 text-lg text-slate-600">
             Join our remote team and help build high-quality AI and data operations. Browse open
             roles below and apply to the position that fits your skills.
           </p>
