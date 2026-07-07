@@ -142,6 +142,7 @@ export default function JobApplicationPage() {
         phone: phone.trim(),
         cv_url: publicUrl,
         explanation: explanation.trim(),
+        job_id: jobId,
       });
 
       if (insertError) {
@@ -165,23 +166,33 @@ export default function JobApplicationPage() {
   return (
     <div className="flex flex-1 items-center justify-center bg-gradient-to-br from-slate-50 via-white to-indigo-50 px-4 py-12 dark:from-zinc-950 dark:via-zinc-900 dark:to-indigo-950">
       <main className="w-full max-w-2xl">
-        <div className="mb-8 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
-            Careers
-          </p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-            {job.title}
-          </h1>
-          <p className="mt-3 text-zinc-600 dark:text-zinc-400">
-            Review the role details below, then submit your application.
-          </p>
+        <div className="mb-8">
+          <Link
+            href="/"
+            className="inline-flex text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400"
+          >
+            ← Back to open roles
+          </Link>
+          <div className="mt-6 text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
+              OceanSource AI
+            </p>
+            <h1 className="mt-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+              {job.title}
+            </h1>
+            <p className="mt-3 text-zinc-600 dark:text-zinc-400">
+              Review the role details below, then submit your application.
+            </p>
+          </div>
         </div>
 
         <div className="space-y-6">
           <div className="rounded-2xl border border-zinc-200/80 bg-white p-8 shadow-xl shadow-zinc-200/50 dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-none">
             <div className="space-y-8">
               <JobDetailSection title="Project Overview">{job.overview}</JobDetailSection>
-              <JobDetailSection title="Response Rating Workflow">{job.workflow}</JobDetailSection>
+              {job.workflow && (
+                <JobDetailSection title="Workflow">{job.workflow}</JobDetailSection>
+              )}
               <JobDetailSection title="Minimum Requirements">{job.requirements}</JobDetailSection>
             </div>
           </div>
