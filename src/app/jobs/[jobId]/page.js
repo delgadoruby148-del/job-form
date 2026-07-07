@@ -58,7 +58,7 @@ const COUNTRIES = [
 ];
 
 const fieldClassName =
-  "w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50 dark:focus:border-indigo-400";
+  "w-full rounded-xl border border-sky-200 bg-white px-4 py-2.5 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20";
 
 function applyDialCodePrefix(currentPhone, previousDialCode, newDialCode) {
   let localNumber = currentPhone.trim();
@@ -122,10 +122,8 @@ function Spinner() {
 function JobDetailSection({ title, children }) {
   return (
     <section className="space-y-3">
-      <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">{title}</h2>
-      <div className="whitespace-pre-line text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-        {children}
-      </div>
+      <h2 className="text-lg font-semibold text-slate-900">{title}</h2>
+      <div className="whitespace-pre-line text-sm leading-relaxed text-slate-600">{children}</div>
     </section>
   );
 }
@@ -160,15 +158,13 @@ export default function JobApplicationPage() {
 
   if (!job) {
     return (
-      <div className="flex flex-1 items-center justify-center bg-gradient-to-br from-slate-50 via-white to-indigo-50 px-4 py-12 dark:from-zinc-950 dark:via-zinc-900 dark:to-indigo-950">
+      <div className="flex flex-1 items-center justify-center bg-sky-50 px-4 py-12">
         <main className="w-full max-w-lg text-center">
-          <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">Job not found</h1>
-          <p className="mt-3 text-zinc-600 dark:text-zinc-400">
-            This role may no longer be available.
-          </p>
+          <h1 className="text-2xl font-bold text-slate-900">Job not found</h1>
+          <p className="mt-3 text-slate-600">This role may no longer be available.</p>
           <Link
             href="/"
-            className="mt-6 inline-block text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400"
+            className="mt-6 inline-block text-sm font-medium text-sky-600 hover:text-sky-700"
           >
             Back to home
           </Link>
@@ -239,33 +235,42 @@ export default function JobApplicationPage() {
   }
 
   return (
-    <div className="flex flex-1 items-center justify-center bg-gradient-to-br from-slate-50 via-white to-indigo-50 px-4 py-12 dark:from-zinc-950 dark:via-zinc-900 dark:to-indigo-950">
+    <div className="flex flex-1 items-center justify-center bg-sky-50 px-4 py-12">
       <main className="w-full max-w-2xl">
         <div className="mb-8">
           <Link
             href="/"
-            className="inline-flex text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400"
+            className="inline-flex text-sm font-medium text-sky-600 hover:text-sky-700"
           >
             ← Back to open roles
           </Link>
           <div className="mt-6 text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
+            <p className="text-sm font-semibold uppercase tracking-widest text-sky-600">
               OceanSource AI
             </p>
-            <h1 className="mt-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+            <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">
               {job.title}
             </h1>
-            <p className="mt-2 text-sm font-medium text-indigo-600 dark:text-indigo-400">
-              {job.hourlyRate}
-            </p>
-            <p className="mt-3 text-zinc-600 dark:text-zinc-400">
+            <p className="mt-2 text-sm font-medium text-sky-600">{job.hourlyRate}</p>
+            <p className="mt-3 text-slate-600">
               Review the role details below, then submit your application.
             </p>
           </div>
         </div>
 
         <div className="space-y-6">
-          <div className="rounded-2xl border border-zinc-200/80 bg-white p-8 shadow-xl shadow-zinc-200/50 dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-none">
+          <div className="rounded-2xl border border-sky-100 bg-white p-8 shadow-sm shadow-sky-100/50">
+            {job.isOffPlatform && (
+              <div
+                role="status"
+                className="mb-8 rounded-xl border border-sky-200 bg-sky-50 px-4 py-3 text-sm leading-relaxed text-sky-900"
+              >
+                <span className="font-semibold">🌐 Off-Platform Notice:</span> This project is
+                managed off-platform. While your application is processed directly by OceanSourceAI,
+                the training tasks and operations will be completed outside the OceanSourceAI
+                website on secure client workspace systems.
+              </div>
+            )}
             <div className="space-y-8">
               <JobDetailSection title="Project Overview">{job.overview}</JobDetailSection>
               <JobDetailSection title="Workflow">
@@ -285,14 +290,14 @@ export default function JobApplicationPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200/80 bg-white p-8 shadow-xl shadow-zinc-200/50 dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-none">
+          <div className="rounded-2xl border border-sky-100 bg-white p-8 shadow-sm shadow-sky-100/50">
             {message && (
               <div
                 role="alert"
                 className={`mb-6 rounded-xl px-4 py-3 text-sm ${
                   status === "success"
-                    ? "border border-emerald-200 bg-emerald-50 text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950/50 dark:text-emerald-300"
-                    : "border border-red-200 bg-red-50 text-red-800 dark:border-red-900 dark:bg-red-950/50 dark:text-red-300"
+                    ? "border border-emerald-200 bg-emerald-50 text-emerald-800"
+                    : "border border-red-200 bg-red-50 text-red-800"
                 }`}
               >
                 {message}
@@ -303,7 +308,7 @@ export default function JobApplicationPage() {
               <div>
                 <label
                   htmlFor="fullName"
-                  className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                  className="mb-1.5 block text-sm font-medium text-slate-700"
                 >
                   Full Name
                 </label>
@@ -315,14 +320,14 @@ export default function JobApplicationPage() {
                   value={fullName}
                   onChange={(event) => setFullName(event.target.value)}
                   placeholder="Jane Doe"
-                  className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50 dark:focus:border-indigo-400"
+                  className={fieldClassName}
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="email"
-                  className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                  className="mb-1.5 block text-sm font-medium text-slate-700"
                 >
                   Email
                 </label>
@@ -334,14 +339,14 @@ export default function JobApplicationPage() {
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   placeholder="jane@example.com"
-                  className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50 dark:focus:border-indigo-400"
+                  className={fieldClassName}
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="country"
-                  className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                  className="mb-1.5 block text-sm font-medium text-slate-700"
                 >
                   Country
                 </label>
@@ -367,7 +372,7 @@ export default function JobApplicationPage() {
               <div>
                 <label
                   htmlFor="phone"
-                  className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                  className="mb-1.5 block text-sm font-medium text-slate-700"
                 >
                   Phone
                 </label>
@@ -386,7 +391,7 @@ export default function JobApplicationPage() {
               <div>
                 <label
                   htmlFor="explanation"
-                  className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                  className="mb-1.5 block text-sm font-medium text-slate-700"
                 >
                   Please give a brief explanation into why you fit for this specific job
                 </label>
@@ -398,14 +403,14 @@ export default function JobApplicationPage() {
                   value={explanation}
                   onChange={(event) => setExplanation(event.target.value)}
                   placeholder="Tell us about your relevant experience, attention to detail, and availability for this role."
-                  className="w-full resize-y rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50 dark:focus:border-indigo-400"
+                  className="w-full resize-y rounded-xl border border-sky-200 bg-white px-4 py-2.5 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="cv"
-                  className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                  className="mb-1.5 block text-sm font-medium text-slate-700"
                 >
                   CV (PDF or DOCX, max 500KB)
                 </label>
@@ -416,10 +421,10 @@ export default function JobApplicationPage() {
                   required
                   accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                   onChange={(event) => setCvFile(event.target.files?.[0] ?? null)}
-                  className="w-full rounded-xl border border-dashed border-zinc-300 bg-zinc-50 px-4 py-3 text-sm text-zinc-600 file:mr-4 file:rounded-lg file:border-0 file:bg-indigo-600 file:px-4 file:py-2 file:text-sm file:font-medium file:text-white hover:file:bg-indigo-500 dark:border-zinc-700 dark:bg-zinc-800/50 dark:text-zinc-400"
+                  className="w-full rounded-xl border border-dashed border-sky-200 bg-sky-50/50 px-4 py-3 text-sm text-slate-600 file:mr-4 file:rounded-lg file:border-0 file:bg-sky-500 file:px-4 file:py-2 file:text-sm file:font-medium file:text-white hover:file:bg-sky-600"
                 />
                 {cvFile && (
-                  <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
+                  <p className="mt-2 text-xs text-slate-500">
                     Selected: {cvFile.name} ({Math.round(cvFile.size / 1024)} KB)
                   </p>
                 )}
@@ -428,7 +433,7 @@ export default function JobApplicationPage() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-70"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-sky-600 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {status === "loading" ? (
                   <>
