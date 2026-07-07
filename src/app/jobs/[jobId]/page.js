@@ -14,6 +14,64 @@ const ALLOWED_MIME_TYPES = new Set([
 const ALLOWED_EXTENSIONS = [".pdf", ".docx"];
 const STORAGE_BUCKET = "oceansourceai-application-form";
 
+const COUNTRIES = [
+  { name: "United States", dialCode: "+1" },
+  { name: "United Kingdom", dialCode: "+44" },
+  { name: "Canada", dialCode: "+1" },
+  { name: "Australia", dialCode: "+61" },
+  { name: "India", dialCode: "+91" },
+  { name: "Germany", dialCode: "+49" },
+  { name: "France", dialCode: "+33" },
+  { name: "Philippines", dialCode: "+63" },
+  { name: "Pakistan", dialCode: "+92" },
+  { name: "Nigeria", dialCode: "+234" },
+  { name: "South Africa", dialCode: "+27" },
+  { name: "Mexico", dialCode: "+52" },
+  { name: "Brazil", dialCode: "+55" },
+  { name: "Spain", dialCode: "+34" },
+  { name: "Italy", dialCode: "+39" },
+  { name: "Netherlands", dialCode: "+31" },
+  { name: "Ireland", dialCode: "+353" },
+  { name: "New Zealand", dialCode: "+64" },
+  { name: "Singapore", dialCode: "+65" },
+  { name: "United Arab Emirates", dialCode: "+971" },
+  { name: "Kenya", dialCode: "+254" },
+  { name: "Ghana", dialCode: "+233" },
+  { name: "Bangladesh", dialCode: "+880" },
+  { name: "Indonesia", dialCode: "+62" },
+  { name: "Malaysia", dialCode: "+60" },
+  { name: "Poland", dialCode: "+48" },
+  { name: "Portugal", dialCode: "+351" },
+  { name: "Romania", dialCode: "+40" },
+  { name: "Sweden", dialCode: "+46" },
+  { name: "Switzerland", dialCode: "+41" },
+  { name: "Turkey", dialCode: "+90" },
+  { name: "Ukraine", dialCode: "+380" },
+  { name: "Vietnam", dialCode: "+84" },
+  { name: "Argentina", dialCode: "+54" },
+  { name: "Colombia", dialCode: "+57" },
+  { name: "Egypt", dialCode: "+20" },
+  { name: "Israel", dialCode: "+972" },
+  { name: "Japan", dialCode: "+81" },
+  { name: "South Korea", dialCode: "+82" },
+  { name: "China", dialCode: "+86" },
+];
+
+const fieldClassName =
+  "w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50 dark:focus:border-indigo-400";
+
+function applyDialCodePrefix(currentPhone, previousDialCode, newDialCode) {
+  let localNumber = currentPhone.trim();
+
+  if (previousDialCode && localNumber.startsWith(previousDialCode)) {
+    localNumber = localNumber.slice(previousDialCode.length).trimStart();
+  } else {
+    localNumber = localNumber.replace(/^\+\d{1,4}\s*/, "");
+  }
+
+  return localNumber ? `${newDialCode} ${localNumber}` : `${newDialCode} `;
+}
+
 function validateCvFile(file) {
   if (!file) {
     return "Please upload your CV.";
@@ -79,11 +137,26 @@ export default function JobApplicationPage() {
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("");
   const [phone, setPhone] = useState("");
   const [explanation, setExplanation] = useState("");
   const [cvFile, setCvFile] = useState(null);
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
+
+  function handleCountryChange(event) {
+    const countryName = event.target.value;
+    const selectedCountry = COUNTRIES.find((entry) => entry.name === countryName);
+    const previousCountry = COUNTRIES.find((entry) => entry.name === country);
+
+    setCountry(countryName);
+
+    if (selectedCountry) {
+      setPhone(
+        applyDialCodePrefix(phone, previousCountry?.dialCode ?? null, selectedCountry.dialCode),
+      );
+    }
+  }
 
   if (!job) {
     return (
@@ -140,6 +213,7 @@ export default function JobApplicationPage() {
         full_name: fullName.trim(),
         email: email.trim(),
         phone: phone.trim(),
+        country: country.trim(),
         cv_url: publicUrl,
         explanation: explanation.trim(),
         job_id: jobId,
@@ -153,6 +227,7 @@ export default function JobApplicationPage() {
       setMessage("Application submitted successfully. We'll be in touch soon.");
       setFullName("");
       setEmail("");
+      setCountry("");
       setPhone("");
       setExplanation("");
       setCvFile(null);
@@ -252,6 +327,32 @@ export default function JobApplicationPage() {
 
               <div>
                 <label
+                  htmlFor="country"
+                  className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                >
+                  Country
+                </label>
+                <select
+                  id="country"
+                  name="country"
+                  required
+                  value={country}
+                  onChange={handleCountryChange}
+                  className={fieldClassName}
+                >
+                  <option value="" disabled>
+                    Select your country
+                  </option>
+                  {COUNTRIES.map((entry) => (
+                    <option key={entry.name} value={entry.name}>
+                      {entry.name} ({entry.dialCode})
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label
                   htmlFor="phone"
                   className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
                 >
@@ -265,7 +366,7 @@ export default function JobApplicationPage() {
                   value={phone}
                   onChange={(event) => setPhone(event.target.value)}
                   placeholder="+1 (555) 000-0000"
-                  className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-zinc-900 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50 dark:focus:border-indigo-400"
+                  className={fieldClassName}
                 />
               </div>
 
