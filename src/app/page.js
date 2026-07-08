@@ -106,9 +106,11 @@ export default function Home() {
               </span>
             </h1>
             <p className="max-w-2xl text-lg leading-relaxed text-slate-600">
-              Explore fifteen specialized AI evaluation tracks. Find the role that matches your
-              expertise, apply directly through OceanSource AI, and join our global contributor
-              network.
+              Select from our list of active, flexible, and fully remote micro-projects. Earn up to
+              $48.00/hr completing annotation, fact-checking, and evaluation workloads. Please note
+              that these projects are completed off our official platform, OceanSourceAI, require
+              absolutely no security deposit, and allow you to work on your own schedule from
+              anywhere.
             </p>
           </div>
 
@@ -148,13 +150,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mb-8 flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-bold text-slate-900">Open Positions</h2>
-            <p className="mt-1 text-sm text-slate-500">
-              {filteredJobs.length} {filteredJobs.length === 1 ? "role" : "roles"} available
-            </p>
-          </div>
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold text-slate-900">Open Positions</h2>
         </section>
 
         {filteredJobs.length === 0 ? (
