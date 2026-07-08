@@ -200,7 +200,7 @@ export default function Home() {
                 </p>
 
                 <Link
-                  href={`/jobs/${job.id}`}
+                  href={`/oceansourceai-offplatform-projects/${job.id}`}
                   className="inline-flex items-center justify-center rounded-xl bg-sky-500 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-sky-600"
                 >
                   View & Apply

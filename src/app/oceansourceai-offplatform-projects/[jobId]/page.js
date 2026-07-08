@@ -189,7 +189,7 @@ export default function JobDetailPage() {
         </Link>
       </div>
 
-      <header className="sticky top-0 z-50 mb-10 flex items-center justify-between bg-sky-50/80 py-4 backdrop-blur-md">
+      <header className="sticky top-0 z-50 mb-10 flex items-center justify-between py-4 backdrop-blur-md bg-sky-50/80">
         <Link href="/" className="flex items-center">
           <BrandLogo className="h-[80px] w-auto object-contain" />
         </Link>
