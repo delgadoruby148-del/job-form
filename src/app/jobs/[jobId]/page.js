@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { jobsList } from "@/jobsData";
@@ -27,6 +28,7 @@ export default function JobDetailPage() {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   useEffect(() => {
     if (jobId && jobsList[jobId]) {
@@ -135,10 +137,8 @@ export default function JobDetailPage() {
         throw dbError;
       }
 
-      setMessage({
-        type: "success",
-        text: "Application submitted successfully! We will review your files and contact you shortly.",
-      });
+      setShowSuccessModal(true);
+      setMessage({ type: "", text: "" });
       setFormData({ fullName: "", email: "", phone: "", explanation: "" });
       setFile(null);
       setSelectedCountry(defaultCountry);
@@ -180,18 +180,23 @@ export default function JobDetailPage() {
 
   return (
     <div className="min-h-screen w-full bg-sky-50 px-[15%] py-10 font-sans text-slate-800">
-      <div className="mb-10 flex items-center justify-between border-b border-sky-100 pb-5">
-        <button
-          type="button"
-          onClick={() => router.push("/")}
-          className="flex items-center"
+      <div className="mb-4">
+        <Link
+          href="/"
+          className="inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-sky-100 hover:text-sky-700"
         >
+          ← Back to Positions
+        </Link>
+      </div>
+
+      <header className="sticky top-0 z-50 mb-10 flex items-center justify-between bg-sky-50/80 py-4 backdrop-blur-md">
+        <Link href="/" className="flex items-center">
           <BrandLogo className="h-[80px] w-auto object-contain" />
-        </button>
+        </Link>
         <span className="rounded-full bg-sky-100 px-3 py-1 text-sm font-medium text-sky-600">
           Partner Workspace Portal
         </span>
-      </div>
+      </header>
 
       {jobData.isOffPlatform && (
         <div className="mb-8 flex items-start space-x-3 rounded-xl border border-sky-200 bg-sky-100/80 p-4 text-sm text-sky-900 shadow-sm">
@@ -348,14 +353,8 @@ export default function JobDetailPage() {
               />
             </div>
 
-            {message.text && (
-              <div
-                className={`rounded-xl border p-3 text-xs font-medium ${
-                  message.type === "success"
-                    ? "border-emerald-100 bg-emerald-50 text-emerald-800"
-                    : "border-rose-100 bg-rose-50 text-rose-800"
-                }`}
-              >
+            {message.text && message.type === "error" && (
+              <div className="rounded-xl bg-rose-50 p-3 text-xs font-medium text-rose-800 shadow-sm">
                 {message.text}
               </div>
             )}
@@ -370,6 +369,53 @@ export default function JobDetailPage() {
           </form>
         </div>
       </div>
+
+      {showSuccessModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/40 p-4 backdrop-blur-sm">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="success-modal-title"
+            className="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-xl"
+          >
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-sky-100 text-3xl">
+              🎉
+            </div>
+            <h2 id="success-modal-title" className="text-2xl font-extrabold text-slate-900">
+              Application Received!
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-slate-600">
+              Thank you for applying. Your application files have been successfully received. We
+              will communicate with you via email within 2 business days with the next steps.
+            </p>
+
+            <div className="mt-6 rounded-2xl bg-sky-50 p-5">
+              <p className="text-sm font-medium text-slate-700">
+                While you wait, join fellow taskers in our Discord community!
+              </p>
+              <a
+                href="https://discord.gg/a93Tpmky9k"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-sky-500 px-5 py-3 text-sm font-bold text-white shadow-md transition hover:bg-sky-600"
+              >
+                Join Discord Community
+              </a>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                setShowSuccessModal(false);
+                router.push("/");
+              }}
+              className="mt-4 w-full rounded-xl px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-sky-100 hover:text-sky-700"
+            >
+              Back to Homepage
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

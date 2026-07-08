@@ -76,7 +76,7 @@ export default function Home() {
   }, [searchQuery, activeFilter]);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-sky-50/50 px-[15%] py-10">
+    <div className="relative min-h-screen w-full overflow-x-hidden bg-sky-50/50 px-[15%] py-10">
       <div
         className="pointer-events-none absolute -left-24 top-0 h-72 w-72 rounded-full bg-sky-200/40 blur-3xl"
         aria-hidden="true"
@@ -87,7 +87,7 @@ export default function Home() {
       />
 
       <main className="relative w-full">
-        <header className="mb-12 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <header className="sticky top-0 z-50 mb-12 flex flex-col gap-8 bg-sky-50/80 py-4 backdrop-blur-md lg:flex-row lg:items-center lg:justify-between">
           <BrandLogo className="h-[80px] w-auto object-contain" />
           <p className="max-w-md text-sm leading-relaxed text-slate-500 lg:text-right">
             Premium AI training contracts · Remote-first · Apply in minutes
