@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function BrandLogo({ className = "h-[70px] w-auto object-contain" }) {
+export default function BrandLogo({ className = "h-[80px] w-auto object-contain" }) {
   const [logoFailed, setLogoFailed] = useState(false);
 
   if (logoFailed) {

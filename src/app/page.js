@@ -88,7 +88,7 @@ export default function Home() {
 
       <main className="relative w-full">
         <header className="mb-12 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-          <BrandLogo className="h-[70px] w-auto object-contain" />
+          <BrandLogo className="h-[80px] w-auto object-contain" />
           <p className="max-w-md text-sm leading-relaxed text-slate-500 lg:text-right">
             Premium AI training contracts · Remote-first · Apply in minutes
           </p>
