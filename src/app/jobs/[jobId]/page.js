@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { jobsList } from "@/jobsData";
 import { countriesList } from "@/countriesData";
+import BrandLogo from "@/components/BrandLogo";
 
 const defaultCountry =
   countriesList.find((country) => country.code === "US") ??
@@ -183,14 +184,9 @@ export default function JobDetailPage() {
         <button
           type="button"
           onClick={() => router.push("/")}
-          className="flex items-center space-x-3"
+          className="flex items-center"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-500 text-xl font-bold text-white shadow-md">
-            O
-          </div>
-          <span className="text-2xl font-bold tracking-tight text-slate-900">
-            OceanSource<span className="text-sky-500">AI</span>
-          </span>
+          <BrandLogo />
         </button>
         <span className="rounded-full bg-sky-100 px-3 py-1 text-sm font-medium text-sky-600">
           Partner Workspace Portal

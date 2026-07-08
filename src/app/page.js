@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { jobsList } from "@/jobsData";
+import BrandLogo from "@/components/BrandLogo";
 
 const FILTERS = [
   { id: "all", label: "All" },
@@ -35,32 +36,6 @@ const openRoles = Object.entries(jobsList).map(([id, job]) => ({
   category: JOB_CATEGORIES[id] ?? "generalist",
   ...job,
 }));
-
-function BrandLogo() {
-  const [logoFailed, setLogoFailed] = useState(false);
-
-  if (logoFailed) {
-    return (
-      <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-500 text-lg font-bold text-white shadow-md">
-          O
-        </div>
-        <span className="text-2xl font-bold tracking-tight text-slate-900">
-          OceanSource <span className="text-sky-500">AI</span>
-        </span>
-      </div>
-    );
-  }
-
-  return (
-    <img
-      src="/oceansourceai-logo.png"
-      alt="OceanSource AI"
-      className="h-11 w-auto object-contain"
-      onError={() => setLogoFailed(true)}
-    />
-  );
-}
 
 function SearchIcon() {
   return (
