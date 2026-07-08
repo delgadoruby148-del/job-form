@@ -169,7 +169,7 @@ export default function JobDetailPage() {
         </p>
         <button
           type="button"
-          onClick={() => router.push("/")}
+          onClick={() => router.push("/oceansourceai-offplatform-projects")}
           className="rounded-lg bg-sky-600 px-6 py-3 font-semibold text-white shadow-md transition hover:bg-sky-700"
         >
           Return to Positions List
@@ -182,7 +182,7 @@ export default function JobDetailPage() {
     <div className="min-h-screen w-full bg-sky-50 px-[15%] py-10 font-sans text-slate-800">
       <div className="mb-4">
         <Link
-          href="/"
+          href="/oceansourceai-offplatform-projects"
           className="inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-sky-100 hover:text-sky-700"
         >
           ← Back to Positions
@@ -190,7 +190,7 @@ export default function JobDetailPage() {
       </div>
 
       <header className="sticky top-0 z-50 mb-10 flex items-center justify-between py-4 backdrop-blur-md bg-sky-50/80">
-        <Link href="/" className="flex items-center">
+        <Link href="/oceansourceai-offplatform-projects" className="flex items-center">
           <BrandLogo className="h-[80px] w-auto object-contain" />
         </Link>
         <span className="rounded-full bg-sky-100 px-3 py-1 text-sm font-medium text-sky-600">
@@ -407,7 +407,7 @@ export default function JobDetailPage() {
               type="button"
               onClick={() => {
                 setShowSuccessModal(false);
-                router.push("/");
+                router.push("/oceansourceai-offplatform-projects");
               }}
               className="mt-4 w-full rounded-xl px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-sky-100 hover:text-sky-700"
             >
