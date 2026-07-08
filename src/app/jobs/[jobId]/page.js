@@ -186,7 +186,7 @@ export default function JobDetailPage() {
           onClick={() => router.push("/")}
           className="flex items-center"
         >
-          <BrandLogo className="h-[60px] w-auto object-contain" />
+          <BrandLogo className="h-[70px] w-auto object-contain" />
         </button>
         <span className="rounded-full bg-sky-100 px-3 py-1 text-sm font-medium text-sky-600">
           Partner Workspace Portal
