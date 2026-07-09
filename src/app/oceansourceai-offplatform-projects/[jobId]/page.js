@@ -7,6 +7,7 @@ import { supabase } from "@/lib/supabase";
 import { jobsList } from "@/jobsData";
 import { countriesList } from "@/countriesData";
 import BrandLogo from "@/components/BrandLogo";
+import DiscordIcon from "@/components/DiscordIcon";
 
 const defaultCountry =
   countriesList.find((country) => country.code === "US") ??
@@ -402,6 +403,7 @@ export default function JobDetailPage() {
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-sky-500 px-5 py-3 text-sm font-bold text-white shadow-md transition hover:bg-sky-600"
               >
+                <DiscordIcon />
                 Join Discord Community
               </a>
             </div>

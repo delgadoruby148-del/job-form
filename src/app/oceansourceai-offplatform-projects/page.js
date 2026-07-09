@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { jobsList } from "@/jobsData";
 import BrandLogo from "@/components/BrandLogo";
+import DiscordIcon from "@/components/DiscordIcon";
 
 const FILTERS = [
   { id: "all", label: "All" },
@@ -113,9 +114,20 @@ export default function Home() {
         <header className="sticky top-0 z-50 mb-14 flex flex-col gap-6 py-4 backdrop-blur-md bg-sky-50/80 lg:flex-row lg:items-center lg:justify-between">
           <BrandLogo className="h-[80px] w-auto object-contain" />
           <div className="flex flex-col items-start gap-2 lg:items-end">
-            <span className="rounded-full bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-sky-600 shadow-sm">
-              Partner Workspace Portal
-            </span>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="rounded-full bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-sky-600 shadow-sm">
+                Partner Workspace Portal
+              </span>
+              <a
+                href="https://discord.gg/a93Tpmky9k"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center rounded-xl bg-sky-100 px-4 py-2 text-sm font-semibold text-sky-700 shadow-sm transition hover:bg-sky-200"
+              >
+                <DiscordIcon />
+                Join Community
+              </a>
+            </div>
             <p className="max-w-md text-sm leading-relaxed text-slate-500 lg:text-right">
               Premium AI training contracts · Remote-first · Apply in minutes
             </p>
