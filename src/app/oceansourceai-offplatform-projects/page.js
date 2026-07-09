@@ -123,34 +123,44 @@ export default function Home() {
         </header>
 
         <section className="mb-14 space-y-8">
-          <div className="space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-600">
-              Careers Portal
-            </p>
-            <div className="space-y-5">
-              <h1 className="max-w-4xl text-4xl font-extrabold tracking-tight text-slate-900 md:text-6xl md:leading-[1.05]">
-                Build better AI with{" "}
-                <span className="bg-gradient-to-r from-sky-600 via-sky-500 to-cyan-500 bg-clip-text text-transparent">
-                  flexible remote work
-                </span>
-              </h1>
-              <p className="max-w-3xl text-lg leading-relaxed text-slate-600 md:text-xl">
-                Select from our list of active, flexible, and fully remote micro-projects. Earn up to
-                $48.00/hr completing annotation, fact-checking, and evaluation workloads. Please note
-                that these projects are completed off our official platform, OceanSourceAI, require
-                absolutely no security deposit, and allow you to work on your own schedule from
-                anywhere.
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
+            <div className="space-y-6 lg:col-span-7">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-600">
+                Careers Portal
               </p>
+              <div className="space-y-5">
+                <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 md:text-6xl md:leading-[1.05]">
+                  Build better AI with{" "}
+                  <span className="bg-gradient-to-r from-sky-600 via-sky-500 to-cyan-500 bg-clip-text text-transparent">
+                    flexible remote work
+                  </span>
+                </h1>
+                <p className="text-lg leading-relaxed text-slate-600 md:text-xl">
+                  Select from our list of active, flexible, and fully remote micro-projects. Earn up to
+                  $48.00/hr completing annotation, fact-checking, and evaluation workloads. Please note
+                  that these projects are completed off our official platform, OceanSourceAI, require
+                  absolutely no security deposit, and allow you to work on your own schedule from
+                  anywhere.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                {HERO_HIGHLIGHTS.map((item) => (
+                  <span
+                    key={item.label}
+                    className={`rounded-full px-4 py-2 text-sm font-medium shadow-sm ${item.tone}`}
+                  >
+                    {item.label}
+                  </span>
+                ))}
+              </div>
             </div>
-            <div className="flex flex-wrap gap-3">
-              {HERO_HIGHLIGHTS.map((item) => (
-                <span
-                  key={item.label}
-                  className={`rounded-full px-4 py-2 text-sm font-medium shadow-sm ${item.tone}`}
-                >
-                  {item.label}
-                </span>
-              ))}
+
+            <div className="lg:col-span-5">
+              <img
+                src="/AdobeStock.jpeg"
+                alt="Remote professionals collaborating on AI training projects"
+                className="w-full max-h-[400px] rounded-3xl object-cover shadow-lg"
+              />
             </div>
           </div>
 
