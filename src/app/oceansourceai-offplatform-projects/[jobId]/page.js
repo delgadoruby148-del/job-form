@@ -44,10 +44,6 @@ export default function JobDetailPage() {
 
     if (countryObj) {
       setSelectedCountry(countryObj);
-
-      if (!formData.phone.startsWith("+")) {
-        setFormData((prev) => ({ ...prev, phone: `${countryObj.dialCode} ` }));
-      }
     }
   };
 
@@ -121,11 +117,18 @@ export default function JobDetailPage() {
         data: { publicUrl },
       } = supabase.storage.from("oceansourceai-application-form").getPublicUrl(filePath);
 
+      const userPhone = formData.phone.trim();
+      const dialCode = selectedCountry.dialCode;
+      const cleanPhone = userPhone.startsWith(dialCode)
+        ? userPhone.slice(dialCode.length).trim()
+        : userPhone;
+      const fullPhoneNumber = `${dialCode} ${cleanPhone}`;
+
       const { error: dbError } = await supabase.from("applicants").insert([
         {
           full_name: formData.fullName,
           email: formData.email,
-          phone: formData.phone,
+          phone: fullPhoneNumber,
           country: selectedCountry.name,
           explanation: formData.explanation,
           job_id: jobId,
