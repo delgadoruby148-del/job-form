@@ -15,21 +15,21 @@ const FILTERS = [
 ];
 
 const JOB_CATEGORIES = {
-  "ai-data-evaluator": "generalist",
-  "fact-checker": "generalist",
-  "safety-red-teamer": "generalist",
-  "search-relevance-rater": "generalist",
-  "logic-math-grader": "stem",
-  "code-correction-grader": "stem",
-  "medical-info-verifier": "stem",
-  "legal-contract-verifier": "stem",
-  "creative-evaluator": "language",
-  "translation-auditor": "language",
-  "audio-transcriber": "language",
-  "prompt-fidelity-evaluator": "media",
-  "image-alt-writer": "media",
-  "video-segmentation-tagger": "media",
-  "ui-layout-evaluator": "media",
+  "ai-data-annotator-quality-evaluator-generalist": "generalist",
+  "ai-fact-checking-citation-verifier": "generalist",
+  "multi-turn-chatbot-safety-red-teamer": "generalist",
+  "search-intent-e-commerce-relevance-rater": "generalist",
+  "logical-reasoning-core-math-grader": "stem",
+  "code-correction-optimization-grader": "stem",
+  "medical-information-health-verification-specialist": "stem",
+  "legal-brief-contract-analysis-verifier": "stem",
+  "creative-writing-tone-synthesis-evaluator": "language",
+  "language-translation-localization-auditor": "language",
+  "audio-transcription-accent-diarization": "language",
+  "text-to-image-prompt-fidelity-evaluator": "media",
+  "image-description-alt-text-writer": "media",
+  "video-action-temporal-segmentation-tagger": "media",
+  "ui-ux-front-end-layout-evaluator": "media",
 };
 
 const HERO_HIGHLIGHTS = [

@@ -1,5 +1,5 @@
 export const jobsList = {
-  "ai-data-evaluator": {
+  "ai-data-annotator-quality-evaluator-generalist": {
     title: "AI Data Annotator & Quality Evaluator (Generalist)",
     hourlyRate: "$20/hr",
     isOffPlatform: true,
@@ -18,7 +18,7 @@ export const jobsList = {
       "Write a comprehensive markdown justification explaining your precise ratings."
     ]
   },
-  "fact-checker": {
+  "ai-fact-checking-citation-verifier": {
     title: "AI Fact-Checking & Citation Verifier",
     hourlyRate: "$23/hr",
     isOffPlatform: true,
@@ -37,7 +37,7 @@ export const jobsList = {
       "Correct the incorrect statements and document your authoritative source links explicitly."
     ]
   },
-  "creative-evaluator": {
+  "creative-writing-tone-synthesis-evaluator": {
     title: "Creative Writing & Tone Synthesis Evaluator",
     hourlyRate: "$21/hr",
     isOffPlatform: true,
@@ -56,7 +56,7 @@ export const jobsList = {
       "Rewrite weak sentences or clumsy stanzas to model perfect performance metrics."
     ]
   },
-  "prompt-fidelity-evaluator": {
+  "text-to-image-prompt-fidelity-evaluator": {
     title: "Text-to-Image Prompt Fidelity Evaluator",
     hourlyRate: "$22/hr",
     isOffPlatform: true,
@@ -75,7 +75,7 @@ export const jobsList = {
       "Submit comprehensive ratings determining which model best followed the layout instructions."
     ]
   },
-  "safety-red-teamer": {
+  "multi-turn-chatbot-safety-red-teamer": {
     title: "Multi-Turn Chatbot Safety Red-Teamer",
     hourlyRate: "$24/hr",
     isOffPlatform: true,
@@ -94,7 +94,7 @@ export const jobsList = {
       "Provide actionable feedback reports on how to patch the underlying model vulnerability."
     ]
   },
-  "logic-math-grader": {
+  "logical-reasoning-core-math-grader": {
     title: "Logical Reasoning & Core Math Grader",
     hourlyRate: "$25/hr",
     isOffPlatform: true,
@@ -113,7 +113,7 @@ export const jobsList = {
       "Submit the verified, perfectly executed step-by-step correction to train the training system."
     ]
   },
-  "translation-auditor": {
+  "language-translation-localization-auditor": {
     title: "Language Translation & Localization Auditor",
     hourlyRate: "$23/hr",
     isOffPlatform: true,
@@ -132,7 +132,7 @@ export const jobsList = {
       "Provide the ideal native phrasing adjustments directly into the localization grading portal."
     ]
   },
-  "image-alt-writer": {
+  "image-description-alt-text-writer": {
     title: "Image Description & Alt-Text Writer",
     hourlyRate: "$20/hr",
     isOffPlatform: true,
@@ -151,7 +151,7 @@ export const jobsList = {
       "Format the output text to meet strict accessibility and machine-learning ingestion standards."
     ]
   },
-  "video-segmentation-tagger": {
+  "video-action-temporal-segmentation-tagger": {
     title: "Video Action & Temporal Segmentation Tagger",
     hourlyRate: "$22/hr",
     isOffPlatform: true,
@@ -170,7 +170,7 @@ export const jobsList = {
       "Validate the sequence timing maps to guarantee error-free injection into video-generation models."
     ]
   },
-  "audio-transcriber": {
+  "audio-transcription-accent-diarization": {
     title: "Audio Transcription & Accent Diarization",
     hourlyRate: "$21/hr",
     isOffPlatform: true,
@@ -189,7 +189,7 @@ export const jobsList = {
       "Verify the final output manuscript matches the underlying waveform perfectly."
     ]
   },
-  "ui-layout-evaluator": {
+  "ui-ux-front-end-layout-evaluator": {
     title: "UI/UX Front-End Layout Evaluator",
     hourlyRate: "$24/hr",
     isOffPlatform: true,
@@ -208,7 +208,7 @@ export const jobsList = {
       "Document all visual bugs found with clear explanations of where the rendering failed."
     ]
   },
-  "code-correction-grader": {
+  "code-correction-optimization-grader": {
     title: "Code Correction & Optimization Grader",
     hourlyRate: "$35/hr",
     isOffPlatform: true,
@@ -227,7 +227,7 @@ export const jobsList = {
       "Provide a highly instructional markdown summary explaining the exact rationale behind your fix."
     ]
   },
-  "legal-contract-verifier": {
+  "legal-brief-contract-analysis-verifier": {
     title: "Legal Brief & Contract Analysis Verifier",
     hourlyRate: "$45/hr",
     isOffPlatform: true,
@@ -246,7 +246,7 @@ export const jobsList = {
       "Draft a structured explanation of the legal impact of the model's error."
     ]
   },
-  "medical-info-verifier": {
+  "medical-information-health-verification-specialist": {
     title: "Medical Information & Health Verification Specialist",
     hourlyRate: "$48/hr",
     isOffPlatform: true,
@@ -265,7 +265,7 @@ export const jobsList = {
       "Sign off on the clinical safety score of the reviewed training block."
     ]
   },
-  "search-relevance-rater": {
+  "search-intent-e-commerce-relevance-rater": {
     title: "Search Intent & E-Commerce Relevance Rater",
     hourlyRate: "$20/hr",
     isOffPlatform: true,
